@@ -1,6 +1,6 @@
 # Order Management Service
 
-A production-ready backend service for managing order lifecycle, built with Java 17 and Spring Boot 3.
+Backend service for managing order lifecycle, built with Java 17 and Spring Boot 3.
 
 ## Features
 
@@ -10,6 +10,8 @@ A production-ready backend service for managing order lifecycle, built with Java
 - **Transaction Management**: Atomic state updates with `@Transactional`
 - **Failure Handling**: Graceful error handling with proper logging
 - **Health Checks**: Spring Actuator endpoints for monitoring
+- **API Documentation**: Interactive Swagger UI for easy API testing
+- **CI/CD Pipeline**: Automated testing with GitHub Actions
 
 ## Tech Stack
 
@@ -68,6 +70,25 @@ src/main/java/com/ordermanagement/
 3. **Access the API**
    - Base URL: `http://localhost:8080`
    - Health: `http://localhost:8080/actuator/health`
+   - **Swagger UI**: `http://localhost:8080/swagger-ui.html` 📚
+
+## API Testing
+
+### Interactive Documentation (Recommended)
+
+Open **Swagger UI** in your browser:
+```
+http://localhost:8080/swagger-ui.html
+```
+
+Features:
+- ✅ Test all endpoints interactively
+- ✅ See request/response schemas
+- ✅ No Postman installation needed!
+
+### Alternative: Postman
+
+Import `postman_collection.json` for pre-configured requests.
 
 ## API Endpoints
 
