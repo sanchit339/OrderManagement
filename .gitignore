@@ -10,8 +10,9 @@
 # mac os
 .DS_Store
 
-# Exclude proprietary markdown files
-[A-Z0-9_!@#$%^&*()-]*.md
+# Exclude proprietary documentation files
+SETUP.md
+RESUME_ENHANCEMENTS.md
 
 # Maven
 target/
