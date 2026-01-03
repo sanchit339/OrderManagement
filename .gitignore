@@ -13,6 +13,7 @@
 # Exclude proprietary documentation files
 SETUP.md
 RESUME_ENHANCEMENTS.md
+TuningForGCP.md
 
 # Maven
 target/
