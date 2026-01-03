@@ -15,6 +15,11 @@ SETUP.md
 RESUME_ENHANCEMENTS.md
 TuningForGCP.md
 
+# Production environment files (contain secrets)
+.env.prod
+.env.production
+.env.local
+
 # Maven
 target/
 pom.xml.tag
