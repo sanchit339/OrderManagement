@@ -30,9 +30,9 @@ services:
 
   # Spring Boot Application
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # Use pre-built image from GitHub Container Registry
+    # Built automatically by GitHub Actions CI/CD
+    image: ghcr.io/sanchit339/order-management:latest
     container_name: order-management-app
     ports:
       - "8080:8080"
