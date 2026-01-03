@@ -15,18 +15,21 @@ import java.util.List;
 @Configuration
 public class OpenAPIConfig {
 
-    @Bean
-    public OpenAPI orderManagementOpenAPI() {
-        return new OpenAPI()
-                .info(new Info()
-                        .title("Order Management API")
-                        .description(
-                                "Backend service for managing order lifecycle with async processing and idempotency")
-                        .version("1.0.0")
-                        .contact(new Contact()
-                                .name("API Support")
-                                .email("support@ordermanagement.com")))
-                .servers(List.of(
-                        new Server().url("http://localhost:8080").description("Development Server")));
-    }
+        @Bean
+        public OpenAPI orderManagementOpenAPI() {
+                return new OpenAPI()
+                                .info(new Info()
+                                                .title("Order Management API")
+                                                .description(
+                                                                "Backend service for managing order lifecycle with async processing and idempotency")
+                                                .version("1.0.0")
+                                                .contact(new Contact()
+                                                                .name("API Support")
+                                                                .email("support@ordermanagement.com")))
+                                .servers(List.of(
+                                                new Server().url("http://localhost:8080")
+                                                                .description("Local Development"),
+                                                new Server().url("http://136.113.173.5:8080")
+                                                                .description("Production Server (GCP)")));
+        }
 }
