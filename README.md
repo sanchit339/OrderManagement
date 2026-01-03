@@ -173,13 +173,6 @@ CREATED → PROCESSING → COMPLETED
                        └─────────────────┘
 ```
 
-## Interview Talking Points
-
-1. **Why idempotency?** - Prevents duplicate orders if client retries
-2. **Why @Async?** - API responds fast, processing happens in background
-3. **Why @Transactional?** - Ensures atomic state updates, no partial data
-4. **Failure handling** - Orders marked FAILED with reason logged
-5. **Why PostgreSQL?** - ACID compliance for financial data
 
 ## License
 
