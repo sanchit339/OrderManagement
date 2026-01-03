@@ -30,11 +30,11 @@ public class OrderController {
     private final OrderService orderService;
 
     /**
-     * Create a new order.
-     * Supports idempotency via the Idempotency-Key header.
+     * Create a new order via the Idempotency-Key header.
      *
      * @param request        The order creation request
      * @param idempotencyKey Optional idempotency key to prevent duplicate orders
+     * 
      * @return The created order
      */
     @Operation(summary = "Create a new order", description = "Creates an order and processes it asynchronously. Use Idempotency-Key header to prevent duplicates.")

@@ -13,8 +13,6 @@ import java.util.Random;
 
 /**
  * Asynchronous order processor that handles order processing in the background.
- * This demonstrates async processing patterns commonly used in production
- * systems.
  */
 @Service
 @RequiredArgsConstructor
@@ -25,9 +23,7 @@ public class OrderProcessor {
     private final Random random = new Random();
 
     /**
-     * Process an order asynchronously.
-     * This method runs in a separate thread, allowing the API to respond
-     * immediately.
+     * Process an order asynchronously. (runs on separate thread allowing faster API response)
      *
      * @param orderId The ID of the order to process
      */
@@ -52,8 +48,9 @@ public class OrderProcessor {
             simulateProcessing();
 
             // Simulate occasional failures (10% failure rate for demo)
+            // Showcased the failure scenario and gave API response
             if (shouldSimulateFailure()) {
-                throw new RuntimeException("Simulated processing failure - inventory unavailable");
+                throw new RuntimeException("Simulated processing failure = inventory unavailable");
             }
 
             // Processing successful
