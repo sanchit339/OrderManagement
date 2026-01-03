@@ -1,0 +1,189 @@
+{
+    "info": {
+        "name": "Order Management API",
+        "description": "Collection for testing Order Management Service endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/actuator/health",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "actuator",
+                        "health"
+                    ]
+                },
+                "description": "Check application health status"
+            }
+        },
+        {
+            "name": "Create Order",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Idempotency-Key",
+                        "value": "test-key-{{$timestamp}}",
+                        "description": "Unique key to prevent duplicate orders"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"customerId\": \"CUST001\",\n  \"productName\": \"Laptop\",\n  \"quantity\": 1,\n  \"price\": 999.99\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/orders",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "orders"
+                    ]
+                },
+                "description": "Create a new order with async processing"
+            }
+        },
+        {
+            "name": "Create Order (Test Idempotency)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Idempotency-Key",
+                        "value": "duplicate-test-key",
+                        "description": "Same key to test idempotency"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"customerId\": \"CUST002\",\n  \"productName\": \"Phone\",\n  \"quantity\": 2,\n  \"price\": 599.99\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/orders",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "orders"
+                    ]
+                },
+                "description": "Run this twice with the same Idempotency-Key to see duplicate prevention"
+            }
+        },
+        {
+            "name": "Get Order by ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/orders/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "orders",
+                        "1"
+                    ]
+                },
+                "description": "Retrieve a specific order by ID"
+            }
+        },
+        {
+            "name": "Get All Orders",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/orders",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "orders"
+                    ]
+                },
+                "description": "List all orders in the system"
+            }
+        },
+        {
+            "name": "Get Orders by Customer",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/orders/customer/CUST001",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "orders",
+                        "customer",
+                        "CUST001"
+                    ]
+                },
+                "description": "Get all orders for a specific customer"
+            }
+        },
+        {
+            "name": "Create Order (Invalid Data)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"customerId\": \"\",\n  \"productName\": \"Test\",\n  \"quantity\": -1,\n  \"price\": -100\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/orders",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "orders"
+                    ]
+                },
+                "description": "Test validation error handling"
+            }
+        }
+    ]
+}
