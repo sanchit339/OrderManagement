@@ -10,6 +10,9 @@
 # mac os
 .DS_Store
 
+# Exclude proprietary markdown files
+[A-Z0-9_!@#$%^&*()-]*.md
+
 # Maven
 target/
 pom.xml.tag
