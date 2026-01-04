@@ -27,9 +27,9 @@ public class OpenAPIConfig {
                                                                 .name("API Support")
                                                                 .email("support@ordermanagement.com")))
                                 .servers(List.of(
-                                                new Server().url("http://localhost:8080")
-                                                                .description("Local Development"),
                                                 new Server().url("http://136.113.173.5:8080")
-                                                                .description("Production Server (GCP)")));
+                                                                .description("🚀 Production (GCP) - Try this!"),
+                                                new Server().url("http://localhost:8080")
+                                                                .description("Local Development")));
         }
 }
