@@ -4,6 +4,12 @@ Backend microservice for managing order lifecycle with asynchronous processing, 
 
 🌐 **Live Demo**: http://136.113.173.5:8080/swagger-ui/index.html
 
+## Screenshots
+
+![Swagger UI](docs/Live%20Demo%20Screenshot.png)
+
+![GCP Deployment](docs/GCP%20ScreenShot.png)
+
 ## Features
 
 - Order creation and retrieval via REST API
