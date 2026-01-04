@@ -23,7 +23,7 @@ docker-compose -f docker-compose.prod.yml up -d
 
 # Wait a bit for startup
 echo "⏳ Waiting for application to start..."
-sleep 10
+sleep 30
 
 # Check health
 echo "🏥 Checking application health..."
