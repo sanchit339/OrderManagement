@@ -20,6 +20,9 @@ TuningForGCP.md
 .env.production
 .env.local
 
+# Documentation (tracked files will remain in git)
+# docs/
+
 # Maven
 target/
 pom.xml.tag
